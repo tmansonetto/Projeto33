@@ -19,7 +19,7 @@ public class Program {
 
 
                 String url = "jdbc:postgresql://localhost:5432/coursejdbc";
-                try (Connection conn = DriverManager.getConnection(url, "postgres", "YOUR_PASSWORD")) {
+                try (Connection conn = DriverManager.getConnection(url, System.getenv("DB_USER"), System.getenv("DB_PASSWORD"))) {
                     System.out.println("Conectado: " + !conn.isClosed());
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
